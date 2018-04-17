@@ -1,0 +1,12 @@
+README.md
+setup.py
+Textfile_Harvesting_Agent.egg-info/PKG-INFO
+Textfile_Harvesting_Agent.egg-info/SOURCES.txt
+Textfile_Harvesting_Agent.egg-info/dependency_links.txt
+Textfile_Harvesting_Agent.egg-info/requires.txt
+Textfile_Harvesting_Agent.egg-info/top_level.txt
+agent/__init__.py
+agent/config.py
+agent/harvest.py
+agent/mapping.py
+agent/utils.py
