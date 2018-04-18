@@ -104,21 +104,20 @@ def _harvest_file(filename):
     return adict
 
 
-def _upload_record(record):
+def _upload_record(record, upload_server_url, upload_user, upload_password):
     output = {'success': False}
-    server_url = config.server_url
 
     data = {
         'jsonData': json.dumps(record),
         'metadataType': 'DataCite'
     }
-    url = "{}/jsonCreateMetadataAsJson".format(server_url)
+    url = "{}/jsonCreateMetadataAsJson".format(upload_server_url)
     if config.upload_user:
         response = requests.post(
             url=url,
+            data=data,
             auth=requests.auth.HTTPBasicAuth(
                 config.upload_user, config.upload_password),
-            data=data
         )
     else:
         response = requests.post(
@@ -151,6 +150,18 @@ def harvest(kwargs):
             source_dir)
         return output
 
+    upload_server_url = config.upload_server_url
+    if kwargs.get('upload_server_url'):
+        upload_server_url = kwargs.get('upload_server_url')
+
+    upload_user = config.upload_user
+    if kwargs.get('upload_user'):
+        upload_user = kwargs.get('upload_user')
+
+    upload_password = config.upload_password
+    if kwargs.get('upload_password'):
+        upload_password = kwargs.get('upload_password')
+
     results = []
     for filename in os.listdir(source_dir):
         print('Process file {}'.format(filename))
@@ -161,7 +172,8 @@ def harvest(kwargs):
 
         adict = _harvest_file(afile)
         datacite = _parse_dict(adict)
-        result = _upload_record(datacite)
+        result = _upload_record(
+            datacite, upload_server_url, upload_user, upload_password)
         results.append(result)
 
     output['success'] = True

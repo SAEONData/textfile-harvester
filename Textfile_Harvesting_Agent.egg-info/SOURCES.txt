@@ -8,5 +8,4 @@ Textfile_Harvesting_Agent.egg-info/top_level.txt
 agent/__init__.py
 agent/config.py
 agent/harvest.py
-agent/mapping.py
 agent/utils.py

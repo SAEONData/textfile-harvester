@@ -47,7 +47,7 @@ class AgentAPI(object):
         child = ET.SubElement(api, "br")
         child = ET.SubElement(api, "span", {
             'style': 'font-size: 12'})
-        child.text = "Return selected records in a 'SAEON JSON DataCite' format"
+        child.text = "Harvest satellite textfiles and upload them into a SAEON CKAN metadata server"
         child = ET.SubElement(api, "br")
         child = ET.SubElement(api, "span", {
             'style': 'font-size: 12'})
@@ -55,7 +55,19 @@ class AgentAPI(object):
         child = ET.SubElement(api, "br")
         child = ET.SubElement(api, "span", {
             'style': 'font-size: 12'})
-        child.text = '* field/value pairs: provide any number of fields with the search value'
+        child.text = '* source_dir: the directory on the local file system where the text files reside'
+        child = ET.SubElement(api, "br")
+        child = ET.SubElement(api, "span", {
+            'style': 'font-size: 12'})
+        child.text = '* upload_server_url: URL of server to which harvested records are to be uploaded'
+        child = ET.SubElement(api, "br")
+        child = ET.SubElement(api, "span", {
+            'style': 'font-size: 12'})
+        child.text = '* upload_user: user name to access upload_server_url'
+        child = ET.SubElement(api, "br")
+        child = ET.SubElement(api, "span", {
+            'style': 'font-size: 12'})
+        child.text = '* upload_password: password of user to access upload_server_url'
 
         return ET.tostring(root)
 
