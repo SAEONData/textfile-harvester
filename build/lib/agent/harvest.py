@@ -163,6 +163,7 @@ def harvest(kwargs):
         upload_password = kwargs.get('upload_password')
 
     results = []
+    print('About to process {} files'.format(len(os.listdir(source_dir))))
     for filename in os.listdir(source_dir):
         print('Process file {}'.format(filename))
         afile = os.path.join(source_dir, filename)

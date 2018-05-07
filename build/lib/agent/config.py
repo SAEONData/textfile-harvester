@@ -10,7 +10,7 @@ import_password = ''
 # Data files
 source_dir = '/home/mike/projects/harvester/data'
 # server_url = 'http://qa.dirisa.org/Institutions/pixley-ka-seme/pixley-ka-seme/metadata'
-upload_server_url = 'http://ckan.dirisa.org:9090/Institutions/webtide/sansa/metadata'
+upload_server_url = 'http://ckan.dirisa.org:9090/Institutions/webtide1/sansa3/metadata'
 upload_user = ''
 upload_password = ''
 metadata_dict = {
